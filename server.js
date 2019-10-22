@@ -26,7 +26,7 @@ app.use('/common_lib', express.static('common_lib'));
 
 app.get('/', function(req, res) {
 
-    res.sendFile(__dirname + '/ImageCaptcha.html');
+    res.sendFile(__dirname + '/index.html');
 
 });
 
@@ -44,17 +44,13 @@ app.post('/', function(req, res) {
 
     var password = req.body.password;
 
-    var user_captcha = req.body.user_captcha; // from user entered Captcha Text
+   
 
-    var captcha_Origing = req.body.captcha_Origing; // this is from hidden input html form
+    var org_username = 'admin';
 
-    user_captcha
+    var org_password = 'password';
 
-    var org_username = 'test@gmail.com';
-
-    var org_password = '123456';
-
-    if (username === org_username && password === org_password && user_captcha === captcha_Origing) {
+    if (username === org_username && password === org_password) {
 
         req.session.user = username;
 
